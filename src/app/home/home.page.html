@@ -1,20 +1,72 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="showInfoPopover($event, 'Header')">
+        <ion-icon name="information-circle-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title> Pop Slide </ion-title>
+    <ion-buttons slot="end">
+      <ion-button id="header-pop">
+        <ion-icon name="information-circle-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide ion-text-center">
+        <h2>Slide 1</h2>
+        <div class="swiper-zoom-container">
+          <img src="assets/driveway2.jpg" />
+        </div>
+      </div>
+      <div class="swiper-slide ion-text-center">
+        <h2>Slide 2</h2>
+        <div class="swiper-zoom-container">
+          <img src="assets/garage.jpg" />
+        </div>
+      </div>
+      <div class="swiper-slide ion-text-center">
+        <h2>Slide 3</h2>
+        <div class="swiper-zoom-container">
+          <img src="assets/cabinet4.jpg" />
+        </div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
   </div>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="showInfoPopover($event, 'Footer')">
+        <ion-icon name="information-circle-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button id="footer-pop">
+        <ion-icon name="information-circle-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+
+<ion-popover trigger="header-pop" side="bottom" alignment="center">
+  <ng-template>
+    <app-info-popover
+      [listHeader]="'Inline Popover in Header'"
+    ></app-info-popover>
+  </ng-template>
+</ion-popover>
+
+<ion-popover trigger="footer-pop">
+  <ng-template>
+    <app-info-popover
+      [listHeader]="'Inline Popover in Footer'"
+    ></app-info-popover>
+  </ng-template>
+</ion-popover>
